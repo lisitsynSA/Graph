@@ -2,15 +2,16 @@
 #define GRAPH_T_H
 
 #include <QDebug>
+#include <QLinkedList>
 
 class graph_t
 {
 public:
-    explicit graph_t(int init_size = 0);
+    explicit graph_t();
     ~graph_t();
 private:
-    const int size;
-    graph_t** branches;
+    int size;
+    QLinkedList<graph_t> branches;
 };
 
 #endif // GRAPH_T_H

@@ -1,13 +1,12 @@
 #include "graph_t.h"
 
-graph_t::graph_t(int init_size):
-    size(init_size)
+graph_t::graph_t()
 {
-    qDebug() << "Creating graph (size = " << size << ")";
-    branches = new graph_t*[size];
+    qDebug() << "Creating empty graph";
+    size = 0;
 }
 
 graph_t::~graph_t()
 {
-    delete [] branches;
+    branches.clear();
 }

@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    graph_t graph(5);
+    graph_t graph;
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
