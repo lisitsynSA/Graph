@@ -11,13 +11,23 @@ graph_t::~graph_t()
     branches.clear();
 }
 
-bool graph_t::graph_action(bool (*action)(graph_t*, void*), void *arg)
+bool graph_t::graph_action(bool (*pre_action)(),\
+                           bool (*action)(graph_t *, void *),\
+                           void *arg)
 {
+    if (pre_action())
+        return 1;
     bool result = false;
     QLinkedList<graph_t*>::iterator it = branches.begin();
     for (; it != branches.end(); it++)
         result = result || action(*it, arg);
     return result;
+}
+
+bool graph_t::clear_size()
+{
+    size = 0;
+    return 0;
 }
 
 bool graph_t::size_count(graph_t* branch, void*)

@@ -11,7 +11,11 @@ public:
     ~graph_t();
 
     bool size_count(graph_t* branch, void*);
-    bool graph_action(bool (*action)(graph_t*, void*), void* arg = NULL);
+    bool clear_size();
+    bool nop(){return 0;}
+    bool graph_action(bool (*pre_action)(),\
+                      bool (*action)(graph_t *, void *),\
+                      void* arg = NULL);
 
     int get_size() {return size;}
 protected:
