@@ -9,9 +9,15 @@ class graph_t
 public:
     explicit graph_t();
     ~graph_t();
-private:
+
+    bool size_count(graph_t* branch, void*);
+    bool graph_action(bool (*action)(graph_t*, void*), void* arg = NULL);
+
+    int get_size() {return size;}
+protected:
     int size;
-    QLinkedList<graph_t> branches;
+private:
+    QLinkedList<graph_t*> branches;
 };
 
 #endif // GRAPH_T_H
